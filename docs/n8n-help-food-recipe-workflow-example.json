@@ -1,0 +1,44 @@
+{
+  "name": "Help Food - Gerar Receita IA",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "help-food/generate-recipe",
+        "responseMode": "responseNode"
+      },
+      "name": "Webhook Help Food",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const prompt = $json.body?.prompt || $json.prompt;\nreturn [{ json: { prompt } }];"
+      },
+      "name": "Preparar Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}"
+      },
+      "name": "Responder Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [760, 0]
+    }
+  ],
+  "connections": {
+    "Webhook Help Food": {
+      "main": [[{"node": "Preparar Prompt", "type": "main", "index": 0}]]
+    },
+    "Preparar Prompt": {
+      "main": [[{"node": "Responder Webhook", "type": "main", "index": 0}]]
+    }
+  },
+  "notes": "Exemplo base. Insira entre 'Preparar Prompt' e 'Responder Webhook' o node da sua IA/OpenAI e normalize a saída para o JSON esperado em docs/sprint-3-n8n.md."
+}

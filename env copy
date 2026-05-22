@@ -1,0 +1,23 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=190187
+POSTGRES_DB=postgres
+
+DATABASE_URL=postgresql+psycopg2://postgres:190187@host.docker.internal:5432/postgres
+
+# JWT
+JWT_SECRET=troque-por-uma-chave-grande
+JWT_EXPIRES_MINUTES=120
+
+# App
+APP_BASE_URL=http://localhost:5173
+
+# SMTP
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=elfreitasasus@gmail.com
+SMTP_PASS=fbkb xfqr drdx eepw
+SMTP_FROM=Help Food <elfreitasasus@gmail.com>
+# n8n / IA - Sprint 3
+N8N_RECIPE_WEBHOOK_URL=https://lowell-hotheaded-cytologically.ngrok-free.dev/webhook/help-food-generate
+N8N_WEBHOOK_TIMEOUT_SECONDS=60
+N8N_ALLOW_MOCK_RECIPE=false

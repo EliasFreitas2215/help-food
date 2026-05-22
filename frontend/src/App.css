@@ -1,0 +1,1153 @@
+:root {
+  --bg: #f4f8f6;
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-strong: #ffffff;
+  --surface-soft: #eef5f2;
+  --text: #163241;
+  --muted: #5b7280;
+  --primary: #23b26d;
+  --primary-dark: #168551;
+  --primary-soft: rgba(35, 178, 109, 0.14);
+  --secondary: #e9f2ee;
+  --line: rgba(19, 50, 65, 0.1);
+  --shadow: 0 20px 70px rgba(22, 50, 65, 0.12);
+  --shadow-soft: 0 12px 30px rgba(22, 50, 65, 0.08);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(35, 178, 109, 0.14), transparent 32%),
+    radial-gradient(circle at top right, rgba(22, 50, 65, 0.06), transparent 28%),
+    linear-gradient(180deg, #f7fbf8 0%, #edf4f1 100%);
+}
+
+body, input, button, textarea, select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.site-shell,
+.dashboard-page,
+.macros-page {
+  width: 100%;
+}
+
+.topbar {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.topbar--landing {
+  padding-top: 28px;
+}
+
+.topbar--app {
+  padding-top: 24px;
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand__text small {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(35, 178, 109, 0.1);
+  color: var(--primary-dark);
+}
+
+.nav-link--active {
+  background: rgba(35, 178, 109, 0.14);
+  color: var(--primary-dark);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand__logo,
+.auth-logo {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+main {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero-section,
+.section-grid,
+.dashboard-hero,
+.macros-layout {
+  display: grid;
+  gap: 28px;
+}
+
+.hero-section,
+.dashboard-hero {
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  padding: 24px 0 42px;
+}
+
+.hero-copy h1,
+.auth-visual__content h1,
+.macros-intro h1,
+.dashboard-hero__copy h1 {
+  margin: 10px 0 14px;
+  font-size: clamp(2.4rem, 4vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.hero-copy p,
+.auth-visual__content p,
+.dashboard-hero__copy p,
+.macros-intro p,
+.feature-panel--content p,
+.cta-banner p,
+.mini-card p,
+.recipe-card p,
+.result-card p,
+.goal-card p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(35, 178, 109, 0.12);
+  color: var(--primary-dark);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.eyebrow--light {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.hero-stats,
+.feature-list,
+.recipes-grid,
+.goal-cards,
+.results-placeholder {
+  display: grid;
+  gap: 18px;
+}
+
+.hero-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 28px;
+}
+
+.stat-card,
+.feature-panel,
+.auth-card,
+.recipe-card,
+.goal-card,
+.result-card,
+.verify-card,
+.macro-builder,
+.results-panel,
+.dashboard-strip__item {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+.stat-card,
+.recipe-card,
+.goal-card,
+.result-card,
+.dashboard-strip__item {
+  padding: 22px;
+}
+
+.stat-card strong,
+.dashboard-strip__item strong,
+.recipe-card h3,
+.goal-card h3,
+.result-card h3,
+.feature-panel--content h2,
+.section-heading h2 {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stat-card span,
+.dashboard-strip__item span,
+.recipe-card__meta,
+.recipe-card p,
+.goal-card p,
+.result-card span {
+  color: var(--muted);
+}
+
+.hero-media,
+.feature-panel--image,
+.dashboard-hero__media,
+.auth-visual {
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.hero-media img,
+.feature-panel--image img,
+.dashboard-hero__media img,
+.auth-visual__banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.section-grid {
+  grid-template-columns: 0.95fr 1.05fr;
+  padding: 14px 0 40px;
+  align-items: center;
+}
+
+.feature-panel--content {
+  padding: 34px;
+}
+
+.feature-list,
+.goal-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.mini-card {
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(19, 50, 65, 0.08);
+}
+
+.mini-card h3 {
+  margin: 0 0 8px;
+}
+
+
+
+.hero-section--enhanced {
+  min-height: 76vh;
+}
+
+.hero-media--floating,
+.dashboard-hero__media--highlight {
+  position: relative;
+  min-height: 520px;
+  box-shadow: var(--shadow);
+}
+
+.hero-media--floating img,
+.dashboard-hero__media--highlight img {
+  min-height: 520px;
+}
+
+.floating-panel {
+  position: absolute;
+  z-index: 2;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(19, 50, 65, 0.1);
+  box-shadow: var(--shadow-soft);
+  max-width: 260px;
+}
+
+.floating-panel span {
+  display: block;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.floating-panel strong {
+  display: block;
+  line-height: 1.45;
+}
+
+.floating-panel--top {
+  top: 24px;
+  left: 24px;
+}
+
+.floating-panel--bottom {
+  right: 24px;
+  bottom: 24px;
+}
+
+.floating-panel--dashboard {
+  right: 24px;
+  bottom: 24px;
+}
+
+.hero-stats--enhanced .stat-card--accent {
+  background: linear-gradient(135deg, rgba(35, 178, 109, 0.15), rgba(255, 255, 255, 0.92));
+}
+
+.section-grid--startup {
+  padding-top: 8px;
+}
+
+.showcase-strip {
+  margin: 8px 0 52px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.showcase-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 22px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.72);
+  box-shadow: var(--shadow-soft);
+}
+
+.showcase-strip__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), #7ed7a8);
+  box-shadow: 0 0 0 6px rgba(35, 178, 109, 0.12);
+  flex: 0 0 auto;
+}
+
+.macro-summary {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid rgba(19, 50, 65, 0.08);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(35, 178, 109, 0.08), rgba(255, 255, 255, 0.95));
+}
+
+.macro-summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.macro-summary strong {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.macro-summary p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 520px;
+}
+.cta-banner {
+  margin: 26px 0 50px;
+  border-radius: 32px;
+  padding: 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  background:
+    linear-gradient(120deg, rgba(19, 50, 65, 0.82), rgba(35, 178, 109, 0.8)),
+    center/cover no-repeat;
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.cta-banner h2 {
+  margin: 12px 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  background: linear-gradient(120deg, #f5faf7 0%, #edf3f0 100%);
+}
+
+.auth-page--register {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.auth-visual {
+  position: relative;
+  min-height: 100vh;
+}
+
+.auth-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(22, 50, 65, 0.2), rgba(22, 50, 65, 0.6));
+}
+
+.auth-visual__content {
+  position: absolute;
+  inset: auto 48px 48px 48px;
+  z-index: 1;
+  color: #fff;
+}
+
+.auth-card {
+  align-self: center;
+  justify-self: center;
+  width: min(520px, calc(100% - 32px));
+  padding: 34px;
+}
+
+.auth-card--wide {
+  width: min(780px, calc(100% - 32px));
+}
+
+.auth-card__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-card__header--left {
+  text-align: left;
+}
+
+.auth-card__header h2,
+.verify-card h2 {
+  margin: 12px 0 8px;
+  font-size: 2rem;
+}
+
+.auth-card__header p,
+.auth-card__footer,
+.verify-card p {
+  color: var(--muted);
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.auth-form--grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.auth-form label,
+.macro-field label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.auth-form input,
+.macro-field input {
+  width: 100%;
+  border: 1px solid rgba(19, 50, 65, 0.15);
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.auth-form input:focus {
+  border-color: rgba(35, 178, 109, 0.6);
+  box-shadow: 0 0 0 4px rgba(35, 178, 109, 0.12);
+}
+
+.auth-form__actions,
+.span-2 {
+  grid-column: span 2;
+}
+
+.alert {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.alert--error {
+  background: rgba(220, 53, 69, 0.12);
+  color: #a92535;
+}
+
+.alert--success {
+  background: rgba(35, 178, 109, 0.12);
+  color: var(--primary-dark);
+}
+
+.verify-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.verify-card {
+  width: min(520px, 100%);
+  padding: 34px;
+  text-align: center;
+}
+
+.dashboard-main {
+  padding-bottom: 50px;
+}
+
+.dashboard-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 10px 0 34px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.recipes-grid,
+.results-placeholder {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.recipe-card__badge,
+.goal-card__tag {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(35, 178, 109, 0.12);
+  color: var(--primary-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.recipe-card__link {
+  margin-top: 12px;
+  display: inline-flex;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.macros-layout {
+  padding-bottom: 50px;
+}
+
+.macros-intro,
+.macro-builder,
+.results-panel {
+  padding: 28px;
+}
+
+.macro-builder {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+}
+
+.macro-field span {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.macro-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.results-panel {
+  margin-top: 8px;
+}
+
+.result-card {
+  min-height: 190px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--lg {
+  padding: 14px 24px;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--primary) 0%, #1a9d60 100%);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(35, 178, 109, 0.28);
+}
+
+.btn--secondary {
+  background: var(--secondary);
+  color: var(--text);
+  border: 1px solid rgba(19, 50, 65, 0.08);
+}
+
+.btn--ghost,
+.btn--ghost-dark {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(19, 50, 65, 0.08);
+}
+
+.btn--ghost-dark {
+  background: rgba(22, 50, 65, 0.06);
+}
+
+.btn--light {
+  background: #fff;
+  color: var(--text);
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease both;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.9s ease both;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.9s ease both;
+}
+
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.22s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero-section,
+  .section-grid,
+  .dashboard-hero,
+  .auth-page,
+  .auth-page--register,
+  .macro-builder,
+  .recipes-grid,
+  .results-placeholder,
+  .feature-list,
+  .goal-cards,
+  .dashboard-strip,
+  .showcase-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    min-height: 420px;
+  }
+
+  .hero-media--floating,
+  .dashboard-hero__media--highlight,
+  .hero-media--floating img,
+  .dashboard-hero__media--highlight img {
+    min-height: 420px;
+  }
+
+  .macro-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .auth-page {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar,
+  main {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .topbar,
+  .section-heading,
+  .cta-banner,
+  .hero-actions,
+  .macro-actions,
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-link {
+    min-height: 42px;
+  }
+
+  .hero-copy h1,
+  .auth-visual__content h1,
+  .macros-intro h1,
+  .dashboard-hero__copy h1 {
+    font-size: 2.3rem;
+  }
+
+  .auth-card,
+  .auth-card--wide,
+  .feature-panel--content,
+  .macros-intro,
+  .macro-builder,
+  .results-panel,
+  .verify-card {
+    padding: 22px;
+  }
+
+  .hero-stats,
+  .auth-form--grid {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-panel {
+    position: static;
+    max-width: none;
+    margin-top: 12px;
+  }
+
+  .showcase-strip__item {
+    padding: 18px;
+  }
+
+  .span-2,
+  .auth-form__actions {
+    grid-column: span 1;
+  }
+
+  .auth-visual__content {
+    inset: auto 22px 22px 22px;
+  }
+}
+
+.macro-request-form {
+  display: grid;
+  gap: 22px;
+}
+
+.macro-field-group {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(19, 50, 65, 0.08);
+}
+
+.macro-field-group h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.macro-range-grid,
+.macro-filter-grid,
+.latest-request-card {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.macro-filter-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.macro-filter-grid label,
+.macro-range-grid label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.macro-filter-grid select,
+.macro-range-grid input {
+  width: 100%;
+  border: 1px solid rgba(19, 50, 65, 0.15);
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 16px;
+  outline: none;
+}
+
+.macro-filter-grid select:focus,
+.macro-range-grid input:focus {
+  border-color: rgba(35, 178, 109, 0.6);
+  box-shadow: 0 0 0 4px rgba(35, 178, 109, 0.12);
+}
+
+.span-3 {
+  grid-column: 1 / -1;
+}
+
+.field-error {
+  color: #a92535;
+  font-size: 0.84rem;
+}
+
+.latest-request-card {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.latest-request-card > div {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(19, 50, 65, 0.08);
+  display: grid;
+  gap: 8px;
+}
+
+.latest-request-card span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.latest-request-card strong {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+@media (max-width: 980px) {
+  .macro-filter-grid,
+  .latest-request-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .macro-range-grid,
+  .macro-filter-grid,
+  .latest-request-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sprint 3 - Receitas geradas por IA */
+.recipes-generated-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.generated-recipe-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(27, 94, 32, 0.12);
+  border-radius: 22px;
+  padding: 1.25rem;
+  box-shadow: 0 14px 32px rgba(21, 56, 28, 0.08);
+}
+
+.generated-recipe-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.generated-recipe-card__header h3 {
+  margin: 0.4rem 0 0;
+  color: #15381c;
+}
+
+.generated-recipe-card__header strong {
+  background: #eff8ec;
+  color: #1b5e20;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  white-space: nowrap;
+}
+
+.recipe-macros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.recipe-macros span {
+  background: #fff8ec;
+  border: 1px solid rgba(225, 143, 42, 0.18);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-weight: 700;
+  color: #7a4b08;
+}
+
+.recipe-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.recipe-details-grid h4 {
+  margin: 0 0 0.5rem;
+  color: #15381c;
+}
+
+.recipe-details-grid ul,
+.recipe-details-grid ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #405344;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .generated-recipe-card__header,
+  .recipe-details-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}
+
+/* Sprint 4 - Modo avançado com micronutrientes */
+.advanced-mode-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 22px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(35, 178, 109, 0.14), rgba(255, 255, 255, 0.9));
+  border: 1px solid rgba(35, 178, 109, 0.18);
+}
+
+.advanced-mode-card h2 {
+  margin: 0.55rem 0 0.3rem;
+}
+
+.advanced-mode-card p,
+.field-hint {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.micronutrient-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.micronutrient-grid label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.micronutrient-grid input {
+  width: 100%;
+  border: 1px solid rgba(19, 50, 65, 0.15);
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 16px;
+  outline: none;
+}
+
+.micronutrient-grid input:focus {
+  border-color: rgba(35, 178, 109, 0.6);
+  box-shadow: 0 0 0 4px rgba(35, 178, 109, 0.12);
+}
+
+.nutrition-table-wrap {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(239, 248, 236, 0.62);
+  border: 1px solid rgba(27, 94, 32, 0.12);
+}
+
+.nutrition-table-wrap h4 {
+  margin: 0 0 0.75rem;
+  color: #15381c;
+}
+
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nutrition-table th,
+.nutrition-table td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid rgba(27, 94, 32, 0.1);
+  text-align: left;
+}
+
+.nutrition-table th {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.nutrition-table td {
+  font-weight: 800;
+  color: var(--text);
+}
+
+@media (max-width: 980px) {
+  .micronutrient-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .advanced-mode-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .micronutrient-grid {
+    grid-template-columns: 1fr;
+  }
+}
